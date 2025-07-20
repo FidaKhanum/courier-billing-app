@@ -212,15 +212,12 @@ addRowBtn.addEventListener("click", () => {
     'input[name="weight-metric"]:checked'
   )?.value;
   const weight =
-    weightValue && weightMetric
+    weightValue || weightMetric
       ? `${weightValue} ${weightMetric}`
       : weightValue || "";
   const amount = parseFloat(amountInput.value);
-
-  if (!date || !conNo || !consignee || !destination || isNaN(amount)) {
-    alert(
-      "Please fill all required fields (Date, Consignment No, Consignee, Destination, Amount)."
-    );
+  if (!date || !consignee || !destination || isNaN(amount)) {
+    alert("Please fill all fields.");
     return;
   }
 
